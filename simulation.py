@@ -1,17 +1,16 @@
-import sys
 import numpy as np
 
-def lancer(n):
+def throw(n):
     arr = np.random.randint(1, 7, size=n)
     bc = np.bincount(arr, minlength=7)[1:]
-    print('Résultats :', arr)
+    print('Results :', arr)
     return arr, bc
 
 k = 7
 p = 1/6
 
 while True:
-    print('Entrez [nb bobblehead] [nb bobblehead à tapper] :')
+    print('Enter [n bobblehead] [nb bobblehead to tap] :')
     n = input()
     if n == 'q':
         exit()
@@ -23,22 +22,22 @@ while True:
         n = int(n)
         n2 = 1
     
-    arr, bc = lancer(n)
+    arr, bc = throw(n)
     if bc[-1] == 7:
-        print('Victoire au premier lancer!')
+        print('Win at first throw!')
         print(arr)
         print('Bincount :', bc)
-        breakpoint()
+        exit()
     if n2 > 1:
         for i in range(n2 - 1):
             arr, bc2 = lancer(n)
             if bc2[-1] == 7:
-                print(f'Victoire au lancer {i+1}!')
+                print(f'Win at {i+1}nth throw!')
                 print(arr)
                 print('Bincount :', bc)
-                breakpoint()
+                exit()
             bc += bc2
     
     print('Bincount :', bc)
     x = bc[1] + bc[3] + bc[5]
-    print(x, 'trésors à créer.')
+    print(x, 'treasures to create.')

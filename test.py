@@ -4,7 +4,6 @@ import tqdm
 def throw_n_dies(n):
     arr = np.random.randint(1, 7, size=n)
     bc = np.bincount(arr, minlength=7)[1:]
-    #print('Results :', arr)
     return arr, bc
 
 def simulate(actual_bbs = 2):
