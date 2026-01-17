@@ -30,7 +30,7 @@ while True:
         exit()
     if n2 > 1:
         for i in range(n2 - 1):
-            arr, bc2 = lancer(n)
+            arr, bc2 = throw(n)
             if bc2[-1] == 7:
                 print(f'Win at {i+1}nth throw!')
                 print(arr)
