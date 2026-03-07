@@ -3,18 +3,16 @@ import { ScrollView, StyleSheet, TextInput, View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
+import { useDiceSettings } from '@/contexts/dice-settings-context';
 import {
   expectedTotalEvenResults,
   probabilityExactlySevenSixes,
   probabilityWinAtLeastOnce,
 } from '@/lib/dice';
 
-const DEFAULT_DICE_PER_THROW = '20';
-const DEFAULT_THROW_COUNT = '5';
-
 export default function StatsScreen() {
-  const [dicePerThrowInput, setDicePerThrowInput] = useState(DEFAULT_DICE_PER_THROW);
-  const [throwCountInput, setThrowCountInput] = useState(DEFAULT_THROW_COUNT);
+  const { dicePerThrowInput, throwCountInput, setDicePerThrowInput, setThrowCountInput } =
+    useDiceSettings();
 
   const stats = useMemo(() => {
     const dicePerThrow = parsePositiveInt(dicePerThrowInput);

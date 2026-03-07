@@ -3,15 +3,14 @@ import { Alert, Pressable, ScrollView, StyleSheet, TextInput, View } from 'react
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
+import { useDiceSettings } from '@/contexts/dice-settings-context';
 import { SimulationResult, simulateDiceThrows } from '@/lib/dice';
 
-const DEFAULT_DICE_PER_THROW = '20';
-const DEFAULT_THROW_COUNT = '5';
 const MAX_INPUT_VALUE = 10000;
 
 export default function HomeScreen() {
-  const [dicePerThrowInput, setDicePerThrowInput] = useState(DEFAULT_DICE_PER_THROW);
-  const [throwCountInput, setThrowCountInput] = useState(DEFAULT_THROW_COUNT);
+  const { dicePerThrowInput, throwCountInput, setDicePerThrowInput, setThrowCountInput } =
+    useDiceSettings();
   const [result, setResult] = useState<SimulationResult | null>(null);
 
   const parsedInputs = useMemo(() => {
