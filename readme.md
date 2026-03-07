@@ -1,6 +1,6 @@
 # Luck Bobblehead
 ## LuckBobbleHeadDiceThrower
-React Native app that can throw X dice N times and aggregate the results.
+React Native app that can throw X dice N times and aggregate the results. Vibecoded with ChatGPT Codex. Only supports french right now.
 
 ## Python Scripts
 
