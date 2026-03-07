@@ -12,7 +12,7 @@ else:
 k = 7
 p=1/6
 
-print(scipy.stats.binom.pmf(n=n, p=p, k=k))
+print("probability to win per tapped bobblehead : ", scipy.stats.binom.pmf(n=n, p=p, k=k))
 
 dist = [scipy.stats.binom.pmf(n=i, p=p, k=k) for i in range(130)]
 dist2 = []
