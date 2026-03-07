@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+﻿import { useMemo, useState } from 'react';
 import { ScrollView, StyleSheet, TextInput, View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
@@ -42,13 +42,13 @@ export default function StatsScreen() {
       <ThemedView style={styles.container}>
         <ThemedText type="title">Statistiques</ThemedText>
         <ThemedText>
-          Cette page affiche les probabilites theoriques selon X (des par lancer) et N (nombre de
+          Cette page affiche les probabilités théoriques selon X (dés par lancer) et N (nombre de
           lancers).
         </ThemedText>
 
         <View style={styles.inputRow}>
           <View style={styles.inputBlock}>
-            <ThemedText type="defaultSemiBold">X (des par lancer)</ThemedText>
+            <ThemedText type="defaultSemiBold">X (dés par lancer)</ThemedText>
             <TextInput
               keyboardType="number-pad"
               value={dicePerThrowInput}
@@ -69,17 +69,17 @@ export default function StatsScreen() {
 
         {stats ? (
           <View style={styles.statCard}>
-            <ThemedText type="subtitle">Resultats theoriques</ThemedText>
+            <ThemedText type="subtitle">Résultats théoriques</ThemedText>
             <ThemedText>
-              P(avoir exactement 7 six sur un lancer):{' '}
+              P(avoir exactement 7 six sur un lancer) :{' '}
               <ThemedText type="defaultSemiBold">{toPercent(stats.oneThrowWin)}</ThemedText>
             </ThemedText>
             <ThemedText>
-              P(gagner au moins une fois en N lancers):{' '}
+              P(gagner au moins une fois en N lancers) :{' '}
               <ThemedText type="defaultSemiBold">{toPercent(stats.matchWin)}</ThemedText>
             </ThemedText>
             <ThemedText>
-              Esperance de Y (total de resultats pairs):{' '}
+              Espérance de Y (total de résultats pairs) :{' '}
               <ThemedText type="defaultSemiBold">{stats.expectedEven.toFixed(2)}</ThemedText>
             </ThemedText>
           </View>

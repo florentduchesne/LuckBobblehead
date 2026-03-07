@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+﻿import { useMemo, useState } from 'react';
 import { Alert, Pressable, ScrollView, StyleSheet, TextInput, View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
@@ -30,7 +30,7 @@ export default function HomeScreen() {
     }
 
     if (dicePerThrow > MAX_INPUT_VALUE || throwCount > MAX_INPUT_VALUE) {
-      Alert.alert('Valeurs trop grandes', `X et N doivent etre inferieurs a ${MAX_INPUT_VALUE}.`);
+      Alert.alert('Valeurs trop grandes', `X et N doivent être inférieurs à ${MAX_INPUT_VALUE}.`);
       return;
     }
 
@@ -41,7 +41,7 @@ export default function HomeScreen() {
       const winningTurns = simulation.winningThrowIndexes.map((index) => index + 1).join(', ');
       Alert.alert(
         'Victoire',
-        `Exactement 7 des affichent 6 au(x) lancer(s): ${winningTurns}. Vous gagnez la partie.`
+        `Exactement 7 dés affichent 6 au(x) lancer(s) : ${winningTurns}. Vous gagnez la partie.`
       );
     }
   };
@@ -49,15 +49,15 @@ export default function HomeScreen() {
   return (
     <ScrollView contentContainerStyle={styles.scrollContent}>
       <ThemedView style={styles.container}>
-        <ThemedText type="title">Compteur de des</ThemedText>
+        <ThemedText type="title">Compteur de dés</ThemedText>
         <ThemedText>
-          Parametrez X des a 6 faces, puis lancez-les N fois. Si un lancer contient exactement 7
-          fois le chiffre 6, la partie est gagnee.
+          Paramétrez X dés à 6 faces, puis lancez-les N fois. Si un lancer contient exactement 7
+          fois le chiffre 6, la partie est gagnée.
         </ThemedText>
 
         <View style={styles.inputRow}>
           <View style={styles.inputBlock}>
-            <ThemedText type="defaultSemiBold">X (des par lancer)</ThemedText>
+            <ThemedText type="defaultSemiBold">X (dés par lancer)</ThemedText>
             <TextInput
               keyboardType="number-pad"
               value={dicePerThrowInput}
@@ -88,20 +88,24 @@ export default function HomeScreen() {
 
         {result ? (
           <View style={styles.resultsSection}>
-            <ThemedText type="subtitle">Resultats</ThemedText>
+            <ThemedText type="subtitle">Résultats</ThemedText>
             <ThemedText>
-              Y (nombre total de resultats pairs): <ThemedText type="defaultSemiBold">{result.totalEvenCount}</ThemedText>
+              Y (nombre total de résultats pairs) :{' '}
+              <ThemedText type="defaultSemiBold">{result.totalEvenCount}</ThemedText>
             </ThemedText>
             <ThemedText>
-              Etat: <ThemedText type="defaultSemiBold">{result.hasWinningThrow ? 'Victoire' : 'Pas de victoire'}</ThemedText>
+              État :{' '}
+              <ThemedText type="defaultSemiBold">
+                {result.hasWinningThrow ? 'Victoire' : 'Pas de victoire'}
+              </ThemedText>
             </ThemedText>
 
             {result.throws.map((throwResult, index) => (
               <View key={`throw-${index}`} style={styles.throwCard}>
                 <ThemedText type="defaultSemiBold">Lancer {index + 1}</ThemedText>
-                <ThemedText>Des: {throwResult.values.join(' - ')}</ThemedText>
-                <ThemedText>Nombre de 6: {throwResult.sixCount}</ThemedText>
-                <ThemedText>Resultats pairs: {throwResult.evenCount}</ThemedText>
+                <ThemedText>Dés : {throwResult.values.join(' - ')}</ThemedText>
+                <ThemedText>Nombre de 6 : {throwResult.sixCount}</ThemedText>
+                <ThemedText>Résultats pairs : {throwResult.evenCount}</ThemedText>
               </View>
             ))}
           </View>
