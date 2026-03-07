@@ -1,4 +1,8 @@
 # Luck Bobblehead
+## LuckBobbleHeadDiceThrower
+React Native app that can throw X dice N times and aggregate the results.
+
+## Python Scripts
 
 Some simple scripts to calculate the outcome of playing a bunch of luck bobbleheads.
 
